@@ -14,7 +14,7 @@ Afterwards, the app depletes inventory by the amount of the customer's purchase.
 The app also knows if there is insufficient inventory and prevents the transaction from occuring in this case.
 
 
-Note: In order for the app to work you must run "npm install" in the terminal.
+Note: Please run "npm install" in the terminal prior to using this application.
 
 
 Contributer: Jocelyn Shelton
