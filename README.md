@@ -19,3 +19,12 @@ Note: In order to run this application, you should have the MySQL database alrea
 
 Contributer: Jocelyn Shelton
 
+The images included reflect the application in action:
+Insufficient Quantity; Order Total, and Inventory Depleted
+
+![](/images/InsufficientQuantity.png?raw=true)
+<br><br>
+![](/images/QuantityAdded.png?raw=true)
+<br><br>
+![](/images/depletedInventory.png?raw=true)
+<br><br>
