@@ -11,7 +11,7 @@ var connection = mysql.createConnection({
 	database: 'Bamazon'
 });
 
-// Ensure only positive numbers added
+// Ensure only whole numbers added
 function validateInput(value) {
 	var integer = Number.isInteger(parseFloat(value));
 	var sign = Math.sign(value);
@@ -19,12 +19,12 @@ function validateInput(value) {
 	if (integer && (sign === 1)) {
 		return true;
 	} else {
-		return 'Please enter a whole non-zero number.';
+		return 'Only enter whole numbers.';
 	}
 }
 
 // prompts customer for purchase details
-function promptUserPurchase() {
+function customerInput() {
 	
 	inquirer.prompt([
 		{
@@ -52,34 +52,36 @@ function promptUserPurchase() {
 			if (err) throw err;
                 
 				// If the quantity requested by the user is in stock
+				var productData = data[0];
 				if (quantity <= productData.stock_quantity) {
 					console.log('Quantity Available!');
 
-					var updateQueryStr = 'UPDATE products SET stock_quantity = ' + (productData.stock_quantity - quantity) + ' WHERE item_id = ' + item;
+					var quantityChange = 'UPDATE products SET stock_quantity = ' + (productData.stock_quantity - quantity) + ' WHERE item_id = ' + item;
 				
 					// Update the quantities
-					connection.query(updateQueryStr, function(err, data) {
+					connection.query(quantityChange, function(err, data) {
 						if (err) throw err;
 
 						console.log('Total $' + productData.price * quantity);
+						console.log('Thank you, come again!')
 						console.log("\n---------------------------------------------------------------------\n");
 
 						//stop the db connection
 						connection.end();
 					})
 				} else {
-					console.log('Insufficient Quantity');
+					console.log('Insufficient Quantity, cannot proceed wih order');
 					console.log("\n---------------------------------------------------------------------\n");
 
-					displayInventory();
+					currentSportsProducts();
 				}
 			}
-		})
+		)
 	})
 }
 
 // retrieve the inventory from database 
-function displayInventory() {
+function currentSportsProducts() {
 
 	// Construct the db query string
 	queryStr = 'SELECT * FROM products';
@@ -90,28 +92,28 @@ function displayInventory() {
 		console.log('Existing Inventory: ');
 		console.log('...................\n');
 
-		var strOut = '';
+		var display = '';
 		for (var i = 0; i < data.length; i++) {
-			strOut = '';
-			strOut += 'Item ID: ' + data[i].item_id + '  //  ';
-			strOut += 'Product Name: ' + data[i].product_name + '  //  ';
-			strOut += 'Department: ' + data[i].department_name + '  //  ';
-			strOut += 'Price: $' + data[i].price + '\n';
-            strOut += 'Quantity Available: ' + data[i].stock_quantity + '\n';
-			console.log(strOut);
+			display = '';
+			display += 'Item ID: ' + data[i].item_id + '  //  ';
+			display += 'Product Name: ' + data[i].product_name + '  //  ';
+			display += 'Department: ' + data[i].department_name + '  //  ';
+			display += 'Price: $' + data[i].price + '\n';
+            display += 'Quantity Available: ' + data[i].stock_quantity + '\n';
+			console.log(display);
 		}
 
 	  	console.log("-----------------------------------\n");
 
 	  	// prompts customer for purchase details
-	  	promptUserPurchase();
+	  	customerInput();
 	})
 }
 
 // Run the application logic
 function runBamazon() {
 
-	displayInventory();
+	currentSportsProducts();
 }
 
 runBamazon();

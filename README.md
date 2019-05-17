@@ -2,7 +2,7 @@
 
 Technology Used:
 
-This app is an Amazon-like storefront created with MySQL, Node.js, and javascript.
+This app is an Amazon style storefront created with MySQL, Node.js, and javascript.
 
 
 How it works:
@@ -19,8 +19,11 @@ Note: In order to run this application, you should have the MySQL database alrea
 
 Contributer: Jocelyn Shelton
 
-The images included reflect the application in action:
-Insufficient Quantity; Order Total, and Inventory Depleted
+The images included reflect the Customer-side application in action:
+
+Picture 1: Insufficient Quantity, order cannot proceed
+Picture 2: Inventory is sufficient and Order Total is calculated
+Picture 3: Inventory Depleted (from the previous transaction shown in picture 2), and remaining inventory is listed
 
 ![](/images/InsufficientQuantity.png?raw=true)
 <br><br>
