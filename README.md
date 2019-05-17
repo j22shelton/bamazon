@@ -14,8 +14,9 @@ Afterwards, the app depletes inventory by the amount of the customer's purchase.
 The app also knows if there is insufficient inventory and prevents the transaction from occuring in this case.
 
 
-Note: In order to run this application, you should have the MySQL database already set up on your machine. Also run "npm install" in the terminal prior to using this application.
+Clone: https://github.com/j22shelton/bamazon.git
 
+Note: In order to run this application, you should have the MySQL database already set up on your machine. Also run "npm install" in the terminal prior to using this application.
 
 Contributer: Jocelyn Shelton
 
