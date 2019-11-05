@@ -22,9 +22,9 @@ Contributer: Jocelyn Shelton
 
 The images included reflect the Customer-side application in action:
 
-Picture 1: Insufficient Quantity, order cannot proceed
-Picture 2: Inventory is sufficient and Order Total is calculated
-Picture 3: Inventory Depleted (from the previous transaction shown in picture 2), and remaining inventory is listed
+### Picture 1: Insufficient Quantity, order cannot proceed
+### Picture 2: Inventory is sufficient and Order Total is calculated
+### Picture 3: Inventory Depleted (from the previous transaction shown in picture 2), and remaining inventory is listed
 
 ![](/images/InsufficientQuantity.png?raw=true)
 <br><br>
